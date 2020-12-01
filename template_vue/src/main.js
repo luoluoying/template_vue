@@ -19,6 +19,12 @@ import '@/assets/css/index.scss'
 // 移动端适配
 import 'lib-flexible/flexible.js'
 
+import moment from 'moment'
+// 手动引入所需要的语言包
+import 'moment/locale/zh-cn'
+// 指定使用的语言
+moment.locale('zh-cn')
+
 // filters
 import './filters'
 Vue.config.productionTip = false

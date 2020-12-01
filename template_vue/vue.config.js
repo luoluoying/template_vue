@@ -1,5 +1,6 @@
 'use strict'
 const path = require('path')
+const webpack = require('webpack')
 const defaultSettings = require('./src/config/index.js')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 
@@ -39,7 +40,7 @@ const IS_PROD = ['production', 'prod'].includes(process.env.NODE_ENV)
 
 module.exports = {
   // publicPath: './', // 署应用包时的基本 URL。 vue-router hash 模式使用
-  publicPath: '/lechang/', //署应用包时的基本 URL。  vue-router history模式使用
+  publicPath: '/lechang', // 署应用包时的基本 URL。  vue-router history模式使用
   outputDir: 'dist', //  生产环境构建文件的目录
   assetsDir: 'static', //  outputDir的静态资源(js、css、img、fonts)目录
   lintOnSave: !IS_PROD,
@@ -103,6 +104,12 @@ module.exports = {
   },
 
   chainWebpack: config => {
+    // moment 优化
+    config
+      .plugin('ignore')
+    // 忽略/moment/locale下的所有文件
+      .use(new webpack.IgnorePlugin(/^\.\/locale$/, /moment$/))
+
     config.plugins.delete('preload') // TODO: need test
     config.plugins.delete('prefetch') // TODO: need test
 
