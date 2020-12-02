@@ -7,6 +7,7 @@
     </van-row>
     <van-row type="flex" justify="center">
       <van-col span="22">
+        <!-- test -->
         <login-input />
       </van-col>
     </van-row>
@@ -14,7 +15,6 @@
 </template>
 
 <script>
-import LoginInput from './loginInput'
 import loginInput from './loginInput.vue'
 
 export default {
@@ -32,14 +32,11 @@ export default {
     handleLogin() {
       console.log('login')
     }
-  },
-  comments: {
-    LoginInput
   }
 }
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .login-page {
   color: cadetblue;
   .content {
@@ -48,7 +45,7 @@ export default {
   .login-img {
     height: 200px;
     width: 140px;
-    background: url('../../assets/logo.png') no-repeat;
+    background: url("../../assets/logo.png") no-repeat;
   }
 }
 </style>

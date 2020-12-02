@@ -10,13 +10,17 @@ export const constantRouterMap = [
     component: LoginComponent,
     redirect: '/index',
     meta: {
-      // title: '登录',
+      title: '登录'
       // keepAlive: false
     },
     children: [
       {
         path: '/index',
-        name: 'login'
+        name: 'login',
+        meta: {
+          title: '登录'
+          // keepAlive: false
+        }
       }
     ]
   }
