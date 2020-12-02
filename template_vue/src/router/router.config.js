@@ -3,6 +3,7 @@
  * @type { *[] }
  */
 const LoginComponent = () => import('@/views/login/index')
+const IdentityComponent = () => import('@/views/infoAuth/identity')
 
 export const constantRouterMap = [
   {
@@ -23,5 +24,8 @@ export const constantRouterMap = [
         }
       }
     ]
+  }, {
+    path: '/identity',
+    component: IdentityComponent
   }
 ]

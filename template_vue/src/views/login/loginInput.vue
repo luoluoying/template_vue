@@ -71,6 +71,7 @@ export default {
     onSubmit(values) {
       console.log(this.$store)
       console.log('submit', values)
+      this.$router.push({ path: 'identity' })
     },
     handleChangeCaptcha() {
       this.setTimeDefault()
