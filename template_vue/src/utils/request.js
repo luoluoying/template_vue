@@ -23,6 +23,7 @@ service.interceptors.request.use(
     if (store.getters.token) {
       config.headers['X-Token'] = ''
     }
+    console.log(config, '0000')
     return config
   },
   error => {

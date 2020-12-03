@@ -4,7 +4,12 @@
       <van-col class="tips" span="24">请拍摄并上传身份证照片</van-col>
       <van-col span="4" offset="0">
         <img class="id_front" src="@/assets/id_front.png"/>
-        <van-uploader class="front_upload" :after-read="afterRead">
+        <van-uploader
+          v-model="frontFileList"
+          class="front_upload"
+          :after-read="afterRead"
+          :before-read="beforeRead"
+        >
           <van-icon class="front_icon" name="add" size="50" color="#07c160" />
         </van-uploader>
         <span class="front-tip">上传身份证正面照</span>
@@ -21,15 +26,36 @@
 </template>
 
 <script>
+import { Upload } from '@/api/common'
+import lrz from 'lrz'
+
 export default {
   name: 'UploadId',
   data() {
     return {
+      frontFileList: []
     }
   },
   methods: {
     afterRead(file) {
-      console.log(file)
+      const formData = new FormData()
+      lrz(file.file, {
+        quality: 0.7 // default 太低不清晰可能导致无法识别
+      })
+        .then((res) => {
+          formData.append('file', res.file, 'a')
+          formData.append('phototype', 0)
+          Upload(formData)
+            .then((res) => {
+              console.log(res)
+            })
+            .catch((err) => {
+              console.log(err)
+            })
+        })
+        .catch((err) => {
+          console.log(err, 'compress err')
+        })
     }
   }
 }
