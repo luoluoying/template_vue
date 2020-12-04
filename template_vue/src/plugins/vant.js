@@ -2,7 +2,8 @@
 import Vue from 'vue'
 import {
   Row, Col, Form, Field, Icon, Uploader,
-  Button, List, Cell, Tabbar, TabbarItem
+  Button, List, Cell, Tabbar, TabbarItem,
+  Slider
 } from 'vant'
 Vue.use(Row)
 Vue.use(Col)
@@ -14,3 +15,4 @@ Vue.use(Button)
 Vue.use(Cell)
 Vue.use(List)
 Vue.use(Tabbar).use(TabbarItem)
+Vue.use(Slider)

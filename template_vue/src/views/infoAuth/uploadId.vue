@@ -7,6 +7,7 @@
         <van-uploader
           v-model="frontFileList"
           class="front_upload"
+          :max-count="1"
           :after-read="afterRead"
           :before-read="beforeRead"
         >
@@ -28,6 +29,7 @@
 <script>
 import { Upload } from '@/api/common'
 import lrz from 'lrz'
+// import UploadComponent from '@/components/uploadComponent'
 
 export default {
   name: 'UploadId',
@@ -57,6 +59,9 @@ export default {
           console.log(err, 'compress err')
         })
     }
+  },
+  components: {
+    // UploadComponent
   }
 }
 </script>

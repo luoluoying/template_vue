@@ -90,6 +90,15 @@ module.exports = {
           @import "assets/css/mixin.scss";
           @import "assets/css/variables.scss";
           `
+      },
+      less: {
+        lessOptions: {
+          modifyVars: {
+            // 自定义主题
+            // '@slider-active-background-color': 'red'
+            // '@slider-button-border-radius': 'none'
+          }
+        }
       }
     }
   },
