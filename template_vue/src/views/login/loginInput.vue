@@ -15,18 +15,11 @@
         }
       ]"
     />
-    <van-row>
-      <van-col span="22" offset="1">
-        <slider-path />
-      </van-col>
-    </van-row>
-    <!--
     <van-field v-model="captcha" name="captcha" label="验证码" left-icon="/lechang/static/img/captchaIcon.3e3008b5.png" placeholder="请输入验证码" :rules="[{ required: true, message: '请填写验证码' }]">
       <template #extra>
         <img v-on:click="handleChangeCaptcha" v-bind:src="getCaptcha" />
       </template>
     </van-field>
-    -->
     <van-field v-model="messageValidate" name="messageValidate" label="短信验证码" left-icon="/lechang/static/img/logo.0130240b.png" placeholder="请输入短信验证码" :rules="[{ required: true, message: '请填写短信验证码' }]">
       <template #extra>
         <span v-if="!countDown" v-on:click="sendMessage" native-type="button" size="small" type="primary"> 发送验证码 </span>
@@ -43,7 +36,7 @@ import { Regular } from '@/utils/regular'
 import { sendMessage } from '@/api/common.js'
 import { validateArray } from '@/plugins/vantUtils'
 import { getTimestamp } from '@/utils/toolfunc'
-import SliderPath from '@/components/SliderPath.vue'
+// import SliderPath from '@/components/SliderPath.vue'
 
 export default {
   name: 'LoginInput',
@@ -108,7 +101,12 @@ export default {
     }
   },
   components: {
-    SliderPath
+    // SliderPath
+    //   <van-row>
+    //   <van-col span="22" offset="1">
+    //     <slider-path />
+    //   </van-col>
+    // </van-row>
   }
 }
 </script>
